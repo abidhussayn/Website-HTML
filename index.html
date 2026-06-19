@@ -18,7 +18,9 @@
     a { color: inherit; text-decoration: none; }
 
     header { padding: 0 48px; border-bottom: 2px solid #1a1a1a; position: relative; }
-    .header-logo { position: absolute; top: 50%; transform: translateY(-50%); left: 48px; height: 46px; width: auto; display: block; }
+    .header-logo { position: absolute; top: 50%; transform: translateY(-50%); height: 46px; width: 46px; border-radius: 50%; object-fit: cover; display: block; }
+    .header-logo-left { left: 48px; }
+    .header-logo-right { right: 48px; }
     .masthead { text-align: center; padding: 40px 0 22px; }
     .site-name { font-family: 'Lora', serif; font-size: 58px; font-weight: 600; letter-spacing: -0.5px; line-height: 1; color: #1a1a1a; }
     .site-tagline { font-size: 13px; color: #888; margin-top: 10px; font-weight: 300; letter-spacing: 0.02em; }
@@ -49,6 +51,8 @@
     .side-divider { border: none; border-top: 0.5px solid #ddd; margin: 22px 0; }
     .about-photo { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; display: block; }
     .about-text { font-size: 12.5px; line-height: 1.85; color: #555; font-weight: 300; margin-bottom: 16px; }
+    .about-text p { margin-bottom: 10px; }
+    .about-text p:last-child { margin-bottom: 0; }
     .beats { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; }
     .beat { font-size: 11px; color: #777; background: #e4e1da; padding: 3px 8px; }
     .award-item { padding: 9px 0; border-bottom: 0.5px solid #e4e1da; font-size: 12px; color: #555; font-weight: 300; line-height: 1.5; }
@@ -68,9 +72,10 @@
     .signal-line { font-size: 12px; color: #888; font-weight: 300; margin-top: 10px; }
     .signal-line span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; display: block; margin-bottom: 2px; }
 
-    .social-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 6px; }
-    .social-link { font-size: 11px; color: #777; border: 0.5px solid #ccc; padding: 5px 11px; transition: color 0.15s, border-color 0.15s; }
-    .social-link:hover { color: #1a1a1a; border-color: #999; }
+    .social-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px; align-items: center; }
+    .social-link { color: #999; transition: color 0.15s; display: flex; align-items: center; }
+    .social-link:hover { color: #1a1a1a; }
+    .social-link svg { width: 20px; height: 20px; fill: currentColor; }
 
     footer { padding: 18px 48px; border-top: 0.5px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-size: 11px; color: #ccc; }
@@ -78,7 +83,9 @@
 
     @media (max-width: 780px) {
       header { padding: 0 20px; }
-      .header-logo { left: 20px; height: 36px; }
+      .header-logo { height: 36px; width: 36px; }
+      .header-logo-left { left: 20px; }
+      .header-logo-right { right: 20px; }
       .site-name { font-size: 38px; }
       nav { gap: 18px; flex-wrap: wrap; padding: 12px 0 0; }
       .body { padding: 28px 20px 40px; grid-template-columns: 1fr; gap: 36px; }
@@ -90,7 +97,8 @@
 <body>
 
   <header>
-    <img class="header-logo" src="favicon.png" alt="Abid Hussain" />
+    <img class="header-logo header-logo-left" src="favicon.png" alt="Abid Hussain" />
+    <img class="header-logo header-logo-right" src="favicon.png" alt="" aria-hidden="true" />
     <div class="masthead">
       <div class="site-name">Abid Hussain</div>
       <div class="site-tagline">Covering Pakistan and the wider South Asian region.</div>
@@ -205,7 +213,11 @@
 
       <div class="sl" id="about">About</div>
       <img class="about-photo" src="https://www.aljazeera.com/wp-content/uploads/2022/08/20211006_194151.jpg?resize=512%2C512&quality=80" alt="Abid Hussain" />
-      <div class="about-text">Originally from Karachi, now based in Islamabad. Covers politics, foreign policy, security, human rights, disinformation and culture across Pakistan, Afghanistan and the wider region. Previously at <em>Herald</em> magazine and the BBC in Pakistan.</div>
+      <div class="about-text">
+        <p>Originally from Karachi, I am based in Islamabad, covering politics, foreign policy, security, human rights, disinformation, the economy, media freedom, and culture across Pakistan, Afghanistan and the wider region.</p>
+        <p>Before joining Al Jazeera, I spent six years reporting for the BBC in Pakistan and worked at Herald, the now-closed Karachi-based investigative monthly.</p>
+        <p>I have reported on a number of important stories, including an investigation into Pakistan's internet firewall in November 2024, cited by Freedom House and the United Nations. I won the Human Rights Press Award (multimedia) from Human Rights Watch for my longform account of Pakistani migrants aboard the trawler Adriana, which sank in the Mediterranean in June 2023. I also won the data journalism award from the Centre for Excellence in Journalism for my COVID-19 pandemic coverage for the BBC in 2021.</p>
+      </div>
       <div class="beats">
         <span class="beat">Pakistan</span>
         <span class="beat">Afghanistan</span>
@@ -269,9 +281,15 @@
 
       <div class="sl">Follow</div>
       <div class="social-row">
-        <a class="social-link" href="https://twitter.com/abidhussayn" target="_blank" rel="noopener">X / Twitter</a>
-        <a class="social-link" href="https://www.instagram.com/abidhussayn/" target="_blank" rel="noopener">Instagram</a>
-        <a class="social-link" href="https://www.linkedin.com/in/abid-hussain-journo/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social-link" href="https://twitter.com/abidhussayn" target="_blank" rel="noopener" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="social-link" href="https://www.instagram.com/abidhussayn/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/in/abid-hussain-journo/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
       </div>
 
     </div>
