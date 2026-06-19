@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abid Hussain — Journalist covering Pakistan and the wider South Asian region." />
+  <title>Abid Hussain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: #f7f5f0; font-family: 'IBM Plex Sans', sans-serif; color: #1a1a1a; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    header { padding: 0 48px; border-bottom: 2px solid #1a1a1a; }
+    .masthead { text-align: center; padding: 40px 0 22px; }
+    .site-name { font-family: 'Lora', serif; font-size: 58px; font-weight: 600; letter-spacing: -0.5px; line-height: 1; color: #1a1a1a; }
+    .site-tagline { font-size: 13px; color: #888; margin-top: 10px; font-weight: 300; letter-spacing: 0.02em; }
+    nav { display: flex; justify-content: center; gap: 36px; padding: 16px 0 0; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #777; }
+    nav a { color: #777; transition: color 0.15s; }
+    nav a:hover { color: #1a1a1a; }
+
+    .body { padding: 40px 48px 48px; display: grid; grid-template-columns: 1.55fr 1fr; gap: 52px; align-items: start; }
+    .main { border-right: 0.5px solid #ccc; padding-right: 48px; }
+
+    .sl { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #999; border-bottom: 0.5px solid #bbb; padding-bottom: 7px; margin-bottom: 22px; }
+
+    .feat-item { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 0.5px solid #ddd; }
+    .feat-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .feat-flag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #c0392b; margin-bottom: 7px; display: block; }
+    .feat-title { font-family: 'Lora', serif; font-size: 18px; line-height: 1.3; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; display: block; transition: color 0.15s; }
+    .feat-title:hover { color: #c0392b; }
+    .feat-deck { font-size: 13px; line-height: 1.8; color: #666; font-weight: 300; margin-bottom: 8px; }
+    .feat-byline { font-size: 11px; color: #bbb; }
+
+    .story-row { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 11px 0; border-bottom: 0.5px solid #eceae4; align-items: start; }
+    .story-row:last-child { border-bottom: none; }
+    .story-date { font-size: 11px; color: #bbb; padding-top: 2px; white-space: nowrap; }
+    .story-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #c0392b; margin-bottom: 3px; }
+    .story-title { font-family: 'Lora', serif; font-size: 13.5px; line-height: 1.4; color: #1a1a1a; font-weight: 600; display: block; transition: color 0.15s; }
+    .story-title:hover { color: #c0392b; }
+
+    .side-divider { border: none; border-top: 0.5px solid #ddd; margin: 22px 0; }
+    .about-photo { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; display: block; }
+    .about-text { font-size: 12.5px; line-height: 1.85; color: #555; font-weight: 300; margin-bottom: 16px; }
+    .beats { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; }
+    .beat { font-size: 11px; color: #777; background: #e4e1da; padding: 3px 8px; }
+    .award-item { padding: 9px 0; border-bottom: 0.5px solid #e4e1da; font-size: 12px; color: #555; font-weight: 300; line-height: 1.5; }
+    .award-item:last-child { border-bottom: none; }
+    .award-year { font-size: 11px; color: #bbb; margin-top: 2px; }
+    .placeholder-note { background: #ece9e2; padding: 11px 13px; font-size: 11px; color: #aaa; font-style: italic; font-weight: 300; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+
+    .contact-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #bbb; margin-bottom: 3px; display: block; }
+    .contact-val { font-size: 12.5px; color: #555; font-weight: 300; margin-bottom: 12px; }
+    .contact-form input, .contact-form textarea { width: 100%; background: #ece9e2; border: 0.5px solid #d0cdc6; border-radius: 0; padding: 9px 11px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12.5px; font-weight: 300; color: #1a1a1a; margin-bottom: 8px; outline: none; transition: border-color 0.15s; -webkit-appearance: none; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: #999; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #aaa; }
+    .contact-form textarea { resize: vertical; min-height: 90px; }
+    .contact-form button { background: #1a1a1a; color: #f7f5f0; border: none; padding: 9px 20px; font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; width: 100%; }
+    .contact-form button:hover { background: #333; }
+    .form-success { display: none; font-size: 12.5px; color: #555; font-weight: 300; padding: 10px 0; font-style: italic; }
+    .signal-line { font-size: 12px; color: #888; font-weight: 300; margin-top: 10px; }
+    .signal-line span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; display: block; margin-bottom: 2px; }
+
+    .social-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 6px; }
+    .social-link { font-size: 11px; color: #777; border: 0.5px solid #ccc; padding: 5px 11px; transition: color 0.15s, border-color 0.15s; }
+    .social-link:hover { color: #1a1a1a; border-color: #999; }
+
+    footer { padding: 18px 48px; border-top: 0.5px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 11px; color: #ccc; }
+    .footer-domain { font-size: 11px; color: #ccc; }
+
+    @media (max-width: 780px) {
+      header { padding: 0 20px; }
+      .site-name { font-size: 38px; }
+      nav { gap: 18px; flex-wrap: wrap; padding: 12px 0 0; }
+      .body { padding: 28px 20px 40px; grid-template-columns: 1fr; gap: 36px; }
+      .main { border-right: none; padding-right: 0; border-bottom: 0.5px solid #ccc; padding-bottom: 36px; }
+      footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <div class="site-name">Abid Hussain</div>
+      <div class="site-tagline">Covering Pakistan and the wider South Asian region.</div>
+    </div>
+    <nav>
+      <a href="#featured">Featured</a>
+      <a href="#reporting">Reporting</a>
+      <a href="#video">Video</a>
+      <a href="#dispatches">Dispatches</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="body">
+
+    <div class="main">
+
+      <div class="sl" id="featured">Featured</div>
+
+      <div class="feat-item">
+        <span class="feat-flag">Investigation</span>
+        <a class="feat-title" href="https://www.aljazeera.com/news/2024/11/pakistan-internet-firewall" target="_blank" rel="noopener">Pakistan tests China-like digital firewall to tighten online surveillance</a>
+        <div class="feat-deck">A ground-breaking investigation into Islamabad's expanding censorship infrastructure — and the architecture it is quietly building for state control of the internet. Cited by Freedom House and the United Nations.</div>
+        <div class="feat-byline">Al Jazeera English &middot; November 2024</div>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-flag">Human Rights &middot; Award-winning</span>
+        <a class="feat-title" href="https://www.aljazeera.com/author/abid-hussain" target="_blank" rel="noopener">The Adriana: the Pakistanis aboard a trawler that never arrived</a>
+        <div class="feat-deck">A longform account of the Pakistani migrants who perished when the Adriana sank in the Mediterranean in June 2023 — one of the deadliest shipwrecks in recent European waters.</div>
+        <div class="feat-byline">Al Jazeera English &middot; 2023 &middot; Human Rights Press Award, Human Rights Watch</div>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-flag">Longform</span>
+        <a class="feat-title" href="https://www.aljazeera.com/news/longform/2026/6/12/mountain-of-war-the-india-pakistan-conflicts-deadliest-battle-zone" target="_blank" rel="noopener">Mountain of War: The India-Pakistan conflict's deadliest battle zone</a>
+        <div class="feat-deck">After their war last May, India and Pakistan reached a truce. But deaths continued on the world's highest battlefield — a reported account from Siachen.</div>
+        <div class="feat-byline">Al Jazeera English &middot; June 2026</div>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-flag">Sports &middot; Essay</span>
+        <a class="feat-title" href="https://www.thecricketmonthly.com/story/929545/tape-ball-tales" target="_blank" rel="noopener">Tape-ball tales: cricket's most anarchic, most Pakistani form</a>
+        <div class="feat-deck">An essay on the tape-ball game — the version of cricket that belongs to the streets, the alleys, and the people who never needed a ground to play.</div>
+        <div class="feat-byline">The Cricket Monthly &middot; Cricinfo</div>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-flag">Investigation &middot; Culture</span>
+        <a class="feat-title" href="https://herald.dawn.com/news/1153502/winner-takes-all-who-benefits-from-game-shows-and-by-how-much" target="_blank" rel="noopener">Winner takes all: who benefits from game shows, and by how much?</a>
+        <div class="feat-deck">A reported investigation into Pakistan's television game show industry — the money, the spectacle, and the economics behind the country's most-watched format.</div>
+        <div class="feat-byline">Herald &middot; Dawn Group &middot; August 2016</div>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-flag">Profile</span>
+        <a class="feat-title" href="https://herald.dawn.com/news/1153201/moon-gazing-profile-of-mufti-muneeb-ur-rehman" target="_blank" rel="noopener">Moon gazing: a portrait of Mufti Muneeb-ur-Rehman</a>
+        <div class="feat-deck">A portrait of Pakistan's most watched moon-gazer — the cleric who decides when Ramadan begins and ends, and why millions still defer to him in an age of satellites.</div>
+        <div class="feat-byline">Herald &middot; Dawn Group &middot; July 2015</div>
+      </div>
+
+    </div>
+
+    <div class="side">
+
+      <div class="sl" id="reporting">Recent Reporting</div>
+
+      <div class="story-row">
+        <div class="story-date">17 Jun 26</div>
+        <div>
+          <div class="story-tag">Profile</div>
+          <a class="story-title" href="https://www.aljazeera.com/sports/2026/6/17/zidane-iqbal-the-footballer-who-gave-pakistan-its-first-world-cup-moment" target="_blank" rel="noopener">Zidane Iqbal: The footballer who gave Pakistan its first World Cup moment</a>
+        </div>
+      </div>
+
+      <div class="story-row">
+        <div class="story-date">15 Jun 26</div>
+        <div>
+          <div class="story-tag">Analysis</div>
+          <a class="story-title" href="https://www.aljazeera.com/news/2026/6/15/how-pakistan-mediated-a-us-iran-agreement-after-more-than-100-days-of-war" target="_blank" rel="noopener">How Pakistan mediated a US-Iran agreement after more than 100 days of war</a>
+        </div>
+      </div>
+
+      <div class="story-row">
+        <div class="story-date">12 Jun 26</div>
+        <div>
+          <div class="story-tag">Longform</div>
+          <a class="story-title" href="https://www.aljazeera.com/news/longform/2026/6/12/mountain-of-war-the-india-pakistan-conflicts-deadliest-battle-zone" target="_blank" rel="noopener">Mountain of War: The India-Pakistan conflict's deadliest battle zone</a>
+        </div>
+      </div>
+
+      <div class="story-row">
+        <div class="story-date">23 May 26</div>
+        <div>
+          <div class="story-tag">Analysis</div>
+          <a class="story-title" href="https://www.aljazeera.com/news/2026/5/23/are-india-and-pakistan-quietly-preparing-to-restart-dialogue" target="_blank" rel="noopener">Are India and Pakistan quietly preparing to restart dialogue?</a>
+        </div>
+      </div>
+
+      <div class="story-row">
+        <div class="story-date">21 May 26</div>
+        <div>
+          <div class="story-tag">Feature</div>
+          <a class="story-title" href="https://www.aljazeera.com/features/2026/5/21/iron-brothers-how-china-and-pakistan-built-an-unlikely-75-year-bond" target="_blank" rel="noopener">'Iron brothers': How China and Pakistan built an unlikely 75-year bond</a>
+        </div>
+      </div>
+
+      <hr class="side-divider" />
+
+      <div class="sl" id="about">About</div>
+      <img class="about-photo" src="https://www.aljazeera.com/wp-content/uploads/2022/08/20211006_194151.jpg?resize=512%2C512&quality=80" alt="Abid Hussain" />
+      <div class="about-text">Originally from Karachi, now based in Islamabad. Covers politics, foreign policy, security, human rights, disinformation and culture across Pakistan, Afghanistan and the wider region. Previously at <em>Herald</em> magazine and the BBC in Pakistan.</div>
+      <div class="beats">
+        <span class="beat">Pakistan</span>
+        <span class="beat">Afghanistan</span>
+        <span class="beat">US&ndash;Iran</span>
+        <span class="beat">South Asia</span>
+        <span class="beat">Human rights</span>
+        <span class="beat">Disinformation</span>
+      </div>
+
+      <hr class="side-divider" />
+
+      <div class="sl">Recognition</div>
+      <div class="award-item">
+        Human Rights Press Award &mdash; Multimedia
+        <div class="award-year">Human Rights Watch &middot; 2024</div>
+      </div>
+      <div class="award-item">
+        Data Journalism Award
+        <div class="award-year">Centre for Excellence in Journalism &middot; 2021</div>
+      </div>
+
+      <hr class="side-divider" />
+
+      <div class="sl" id="video">Video</div>
+      <div class="placeholder-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Video appearances &mdash; coming soon.
+      </div>
+
+      <hr class="side-divider" />
+
+      <div class="sl" id="dispatches">Dispatches</div>
+      <div class="placeholder-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+        Field notes and essays &mdash; coming soon.
+      </div>
+
+      <hr class="side-divider" />
+
+      <div class="sl" id="contact">Contact</div>
+      <div class="contact-val">For commissions, pitches, speaking engagements or panel appearances, use the form below.</div>
+
+      <form class="contact-form" action="https://formspree.io/f/xjgdnkgg" method="POST" id="contactForm">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <input type="text" name="subject" placeholder="Subject — commission, pitch, speaking..." />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        Message sent. I will be in touch.
+      </div>
+
+      <div class="signal-line">
+        <span>Signal</span>
+        @abidhussayn8706
+      </div>
+
+      <hr class="side-divider" />
+
+      <div class="sl">Follow</div>
+      <div class="social-row">
+        <a class="social-link" href="https://twitter.com/abidhussayn" target="_blank" rel="noopener">X / Twitter</a>
+        <a class="social-link" href="https://www.instagram.com/abidhussayn/" target="_blank" rel="noopener">Instagram</a>
+        <a class="social-link" href="https://www.linkedin.com/in/abid-hussain-journo/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-copy">&copy; Abid Hussain</div>
+    <div class="footer-domain">abid-hussain.com</div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }
+      } catch(err) {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+</body>
+</html>
